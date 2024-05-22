@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MIS_PENDIENTES.View.AgregarTareaPage">
+    <StackLayout Padding="10">
+        <Frame Padding="10" CornerRadius="10" BorderColor="Gray" BackgroundColor="LightGray">
+            <StackLayout>
+                <Entry Placeholder="Nombre" Text="{Binding Nombre}" IsEnabled="{Binding EstaTerminada, Converter={StaticResource InverseBoolConverter}}"/>
+                <Editor Placeholder="Descripción" Text="{Binding Descripcion}" IsEnabled="{Binding EstaTerminada, Converter={StaticResource InverseBoolConverter}}"/>
+                <TimePicker Time="{Binding HoraInicio, Mode=TwoWay}" IsEnabled="{Binding EstaTerminada, Converter={StaticResource InverseBoolConverter}}"/>
+                <TimePicker Time="{Binding HoraFin, Mode=TwoWay}" IsEnabled="{Binding EstaTerminada, Converter={StaticResource InverseBoolConverter}}"/>
+                <Switch IsToggled="{Binding EstaTerminada}"/>
+                <Button Text="Guardar" Clicked="OnGuardarClicked" IsEnabled="{Binding EstaTerminada, Converter={StaticResource InverseBoolConverter}}"/>
+                <Button Text="Eliminar" Clicked="OnEliminarClicked"/>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>
